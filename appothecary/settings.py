@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'formulations',
     'saves',
     'volumecalc',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
