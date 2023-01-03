@@ -81,6 +81,7 @@ body {
   
   .user-info {
     float: right;
+    padding: 20px;
   }
   
   a.fav {
