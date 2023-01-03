@@ -4,6 +4,9 @@ from .models import Oils, Additives
 def home(response):
     return render(response, 'recipemaker/home.html', {})
 
+def lye_calc(response):
+    return render(response, 'recipemaker/lye_calc.html', {})
+
 def oils_list(request):
     oils = Oils.objects.all()
     return render(request, 'recipemaker/oils_list.html', {'oils': oils})

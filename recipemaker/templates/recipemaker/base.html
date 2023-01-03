@@ -1,22 +1,14 @@
 {% load static %}
 <html>
   <head>
-    <title>Recipe Maker</title>
+    <title>APPothecary</title>
     <link rel="stylesheet" href="{% static 'css/recipemaker.css' %}" />
   </head>
   <body>
-    <h1>Recipe Maker</h1>
+    <h1>APPothecary</h1>
     <nav>
-        <div class="'user-info">
-            {% if user.is_authenticated %} Hiya, {{ user.username }}!
-            <a href="{% url 'logout' %}">Log Out</a>
-            {% else %}
-            <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'signup' %}">Signup</a>
-            {% endif %}
-        </div>
-        <a href="/additives">Additives</a>
-        <a href="/">Oils</a>
+        <a href="/lyecalc">Create a Recipe</a>        
+       
         <a href="/volume">Volume Calc</a>
         <a href="/formulas">Formulas</a>
     </nav>
