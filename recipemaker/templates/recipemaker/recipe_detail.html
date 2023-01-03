@@ -1,0 +1,18 @@
+{% extends 'recipemaker/base.html' %} {% block content %}
+<h1>{{recipe.name}}</h1>
+<!-- <form method="post" action="#">
+    {% csrf_token %} -->
+    <!-- {{form.as_p}} -->
+    {{recipe.name}}
+    {{recipe.oilname}}
+    {{recipe.superfat}}
+    {{recipe.lyetype}}
+    {{recipe.lyeamount}}
+    <!-- <button type="submit", name="save">Save Recipe</button>
+    <input type="text", name="scaleField">
+    <button type="submit", name="scaleIt">Scale It</button>
+
+</form> -->
+
+
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import Oils, Additives, Recipes
 from .forms import CreateNewRecipe
 
@@ -6,7 +7,15 @@ def home(response):
     return render(response, 'recipemaker/home.html', {})
 
 def lye_calc(response):
-    form = CreateNewRecipe()
+    if response.method == 'POST':
+        form = CreateNewRecipe(response.POST)
+        if form.is_valid():
+            calc = form.cleaned_data["name"]
+            recipe = Recipes(name=calc)
+            recipe.save()
+        return HttpResponseRedirect('/%i' %recipe.id)
+    else:    
+        form = CreateNewRecipe()
     return render(response, 'recipemaker/lye_calc.html', {'form':form})
 
 def oils_list(request):
@@ -26,11 +35,12 @@ def additives_detail(request, id):
     return render(request, 'recipemaker/additives_detail.html', {'additive': additive})
 
 def my_recipes(response):
-    return render(response, 'recipemaker/my_recipes.html', {})
+    recipes = Recipes.objects.all()
+    return render(response, 'recipemaker/my_recipes.html', {'recipes': recipes})
 
 def recipe_detail(request, id):
     recipe = Recipes.objects.get(id=id)
-    return render(request, 'recipemaker.recipe_detail.html', {'recipe': recipe})
+    return render(request, 'recipemaker/recipe_detail.html', {'recipe': recipe})
 
 def volume_calc(response):
     return render(response, 'recipemaker/volume_calc.html', {})

@@ -1,8 +1,10 @@
 {% extends 'recipemaker/base.html' %} {% block content %}
-
-<h1>my saved recipes</h1>
-<h2>first recipe</h2>
-<h2>second recipe</h2>
-<p>so on and so on</p>
-
+<h2>My Recipes</h2>
+<ul>
+  {% for recipe in recipes %}
+  <li>
+    <a href="{% url 'recipe_detail' id=recipe.id %}">{{ recipe.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
 {% endblock %}
