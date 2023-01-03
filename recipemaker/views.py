@@ -16,3 +16,9 @@ def additives_list(request):
 def additives_detail(request, id):
     additive = Additives.objects.get(id=id)
     return render(request, 'recipemaker/additives_detail.html', {'additive': additive})
+
+def volume_calc(request):
+    return render(request, 'recipemaker/volume_calc.html')
+
+def basic_formulations(request):
+    return render(request, 'recipemaker/basic_formulations.html')

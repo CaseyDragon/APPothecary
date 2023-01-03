@@ -7,16 +7,18 @@
   <body>
     <h1>Recipe Maker</h1>
     <nav>
-      <a href="/additives">Additives</a>
-      <a href="/">Oils</a>
         <div class="'user-info">
-            {% if user.is_authenicated %} Hiya, {{ user.username }}!
+            {% if user.is_authenticated %} Hiya, {{ user.username }}!
             <a href="{% url 'logout' %}">Log Out</a>
             {% else %}
             <a href="{% url 'login' %}">Login</a>
             <a href="{% url 'signup' %}">Signup</a>
             {% endif %}
         </div>
+        <a href="/additives">Additives</a>
+        <a href="/">Oils</a>
+        <a href="/volume">Volume Calc</a>
+        <a href="/formulas">Formulas</a>
     </nav>
     {% block content %} {% endblock %}
   </body>
