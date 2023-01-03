@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Oils, Additives
 
+def home(response):
+    return render(response, 'recipemaker/home.html', {})
+
 def oils_list(request):
     oils = Oils.objects.all()
     return render(request, 'recipemaker/oils_list.html', {'oils': oils})
@@ -17,8 +20,8 @@ def additives_detail(request, id):
     additive = Additives.objects.get(id=id)
     return render(request, 'recipemaker/additives_detail.html', {'additive': additive})
 
-def volume_calc(request):
-    return render(request, 'recipemaker/volume_calc.html')
+def volume_calc(response):
+    return render(response, 'recipemaker/volume_calc.html', {})
 
-def basic_formulations(request):
-    return render(request, 'recipemaker/basic_formulations.html')
+def basic_formulations(response):
+    return render(response, 'recipemaker/basic_formulations.html', {})
