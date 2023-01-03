@@ -24,7 +24,7 @@ def additives_detail(request, id):
     return render(request, 'recipemaker/additives_detail.html', {'additive': additive})
 
 def my_recipes(response):
-    pass
+    return render(response, 'recipemaker/my_recipes.html', {})
 
 def volume_calc(response):
     return render(response, 'recipemaker/volume_calc.html', {})

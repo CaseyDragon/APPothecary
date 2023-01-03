@@ -40,9 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appothecary',
     'recipemaker',
-    'formulations',
-    'saves',
-    'volumecalc',
     'django_extensions',
     'accounts',
 ]
