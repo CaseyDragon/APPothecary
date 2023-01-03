@@ -23,6 +23,15 @@ class Oils(models.Model):
     moisturizing = models.IntegerField()
     bubbles = models.IntegerField()
 
+    def __str__(self):
+        return self.name
+
+
+class Additives(models.Model):
+    name = models.CharField(max_length=100)
+    suggested = models.CharField(max_length = 100)
+    maxuse = models.CharField(max_length = 100)
+    lyephase = models.BooleanField()
 
     def __str__(self):
         return self.name
