@@ -1,11 +1,13 @@
 from django.shortcuts import render
-from .models import Oils, Additives
+from .models import Oils, Additives, Recipes
+from .forms import CreateNewRecipe
 
 def home(response):
     return render(response, 'recipemaker/home.html', {})
 
 def lye_calc(response):
-    return render(response, 'recipemaker/lye_calc.html', {})
+    form = CreateNewRecipe()
+    return render(response, 'recipemaker/lye_calc.html', {'form':form})
 
 def oils_list(request):
     oils = Oils.objects.all()
@@ -25,6 +27,10 @@ def additives_detail(request, id):
 
 def my_recipes(response):
     return render(response, 'recipemaker/my_recipes.html', {})
+
+def recipe_detail(request, id):
+    recipe = Recipes.objects.get(id=id)
+    return render(request, 'recipemaker.recipe_detail.html', {'recipe': recipe})
 
 def volume_calc(response):
     return render(response, 'recipemaker/volume_calc.html', {})

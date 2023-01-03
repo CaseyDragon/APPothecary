@@ -35,3 +35,18 @@ class Additives(models.Model):
 
     def __str__(self):
         return self.name
+
+class Recipes(models.Model):
+    name = models.CharField(max_length=100)
+    superfat = models.IntegerField()
+    lyetype = models.CharField(max_length= 10)
+    lyeamount = models.DecimalField(max_digits=6, decimal_places=2)
+    lyeadditives = models.CharField(max_length=100)
+    oilname = models.CharField(max_length=100)
+    oilamount = models.DecimalField(max_digits=6, decimal_places=2)
+    additive = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
