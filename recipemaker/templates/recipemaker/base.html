@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+  <head>
+    <title>Recipe Maker</title>
+    <link rel="stylesheet" href="{% static 'css/recipemaker.css' %}" />
+  </head>
+  <body>
+    <h1>Recipe Maker</h1>
+    <nav>
+      <a href="/additives">Additives</a>
+      <a href="/">Oils</a>
+        <div class="'user-info">
+            {% if user.is_authenicated %} Hiya, {{ user.username }}!
+            <a href="{% url 'logout' %}">Log Out</a>
+            {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signup' %}">Signup</a>
+            {% endif %}
+        </div>
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>
