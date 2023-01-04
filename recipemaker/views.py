@@ -40,6 +40,11 @@ def my_recipes(response):
 
 def recipe_detail(request, id):
     recipe = Recipes.objects.get(id=id)
+    # work out code for scaling here I believe
+    # if response.POST.get('save'):
+
+    # elif response.POST.get('scaleIt'):
+    #     pass    
     return render(request, 'recipemaker/recipe_detail.html', {'recipe': recipe})
 
 def volume_calc(response):
