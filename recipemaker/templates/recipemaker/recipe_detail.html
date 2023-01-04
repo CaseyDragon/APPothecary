@@ -41,13 +41,35 @@
     {{recipe.lyeamount}} -->
 
     <!-- add functionality to delete recipe, scale recipe, maybe edit it but unsure -->
-     
-    <button class="button is-primary is-rounded" type="submit", name="save">Save Recipe</button>
-    <input type="text", name="scaleField">
-    <button class="button is-primary is-rounded" type="submit", name="scaleIt">Scale It</button>
-
-<!-- </form> -->
-    </div>
+    <form>
+        <div class="field">
+            <label class="label">Scale to:</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="in ounces">
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+            <label class="checkbox">
+               <input type="checkbox">
+               ounces
+            </label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+            <label class="checkbox">
+               <input type="checkbox">
+               pounds
+            </label>
+            </div>
+        </div>
+        <div class="">
+            <button class="button is-primary is-rounded">Scale it</button>
+        </div>
+    </form> 
 </section>
 
 {% endblock %}
+
+
