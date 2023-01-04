@@ -1,46 +1,31 @@
 <!-- {% load static %} -->
 <html>
   <head>
-    <style type="text/css">
-        .sidenav {
-            height:100%;
-            width: 160px;
-            position: fixed;
-            z-index: 1;
-            top:0;
-            right: 0;
-            background-color: burlywood;
-            overflow-x: hidden;
-            padding-top: 20px;
-        }
-        .sidenav a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 25px;
-            color: saddlebrown;
-            display:block;
-
-        }
-        .sidenav a:hover {
-            color: brown;
-        }
-        .main {
-            margin-right:160px;
-        }
-
-
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>APPothecary</title>
-    <!-- <link rel="stylesheet" href="{% static 'css/recipemaker.css' %}" /> -->
+    
   </head>
+
   <body>
     <h1>APPothecary</h1>
-    <nav class="sidenav">
-        <a href="/">Home</a> 
-        <a href="/lyecalc">Create a Recipe</a>        
-        <a href="/myrecipes">My Recipes</a>
-        <a href="/volume">Volume Calc</a>
-        <a href="/formulas">Formulas</a>
+    <nav class="navbar has-shadow">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <img src="" alt="soap logo" style="max-height: 70px" class="py-2 px-2">
+            </a>
+        </div>
+        <div class ="navbar-menu">
+            <div class="navbar-start">
+                <a class ="navbar-item" href="/">Home</a>
+                <a class ="navbar-item" href="/lyecalc">Create a Recipe</a>
+                <a class ="navbar-item" href="/myrecipes">My Recipes</a>
+                <a class ="navbar-item" href="/volume">Volume Calc</a>
+                <a class ="navbar-item" href="/formulas">Formulas</a>
+            </div>
+
+        </div>
+
     </nav>
     <div class="main">
     {% block content %}
