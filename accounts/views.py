@@ -5,14 +5,14 @@ from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 
-def sign_up(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+def sign_up(response):
+    if response.method == 'POST':
+        form = UserCreationForm(response.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
+            login(response, user)
             return redirect('/home')
     else:
         form = UserCreationForm()
     
-    return render(request, 'accounts/signup.html', {'form': form})
+    return render(response, 'accounts/signup.html', {'form': form})
