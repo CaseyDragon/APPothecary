@@ -1,6 +1,7 @@
 {% extends 'recipemaker/base.html' %} {% block content %}
-<h2>My Recipes</h2>
-<ul>
+
+<h1 class="is-size-3-mobile is-size-1-desktop has-text-centered ">My Recipes</h1>
+<ul class="is-size-3 is-primary has-text-centered">
   {% for recipe in recipes %}
   <li>
     <a href="{% url 'recipe_detail' id=recipe.id %}">{{ recipe.name }}</a>

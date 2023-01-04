@@ -1,21 +1,75 @@
 {% extends 'recipemaker/base.html' %} {% block content %}
-<h1>{{recipe.name}}</h1>
+
+<h1 class="is-size-3-mobile is-size-1-desktop has-text-centered ">{{recipe.name}}</h1>
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <h1 class="is-size-5-mobile is-size-3-desktop has-text-centered mb-3">Lye Phase</h3>
+                <p class="is-size-7-mobile is-size-5-desktop">Type of lye: {{recipe.lyetype}}</br>
+                Amount of lye: {{recipe.lyeamount}} ounces</br>
+                Amount of water: ounces</br>
+                Lye additives: none </p>
+            </div>
+            <div class="column">
+                <h1 class="is-size-5-mobile is-size-3-desktop has-text-centered mb-3">Oil Phase</h3>
+                <p class="is-size-7-mobile is-size-5-desktop">Oil: {{recipe.oilname}}</br>
+                Amount of oil: {{recipe.oilamount}} ounces</br>
+                Oil additives: none </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <h1 class="is-size-5-mobile is-size-3-desktop has-text-centered mb-3">Recipe Information:</h3>
+            <p class="is-size-7-mobile is-size-5-desktop has-text-centered">Superfat: {{recipe.superfat}}%
+                Hardness (idea range 29-54):      Bubbliness (ideal range 14-46):       Cleansing (ideal range 12-22):   conditioning (ideal range 44-69):</p>   
+    </div>
+</section>
+<section class="section has-text-centered">
+    <div class="container">
+        <h1 class="is-size-5-mobile is-size-3-desktop has-text-centered mb-3">Scale Your Recipe</h3>
 <!-- <form method="post" action="#">
     {% csrf_token %} -->
     <!-- {{form.as_p}} -->
-    {{recipe.name}}
+    <!-- {{recipe.name}}
     {{recipe.oilname}}
     {{recipe.superfat}}
     {{recipe.lyetype}}
-    {{recipe.lyeamount}}
+    {{recipe.lyeamount}} -->
 
     <!-- add functionality to delete recipe, scale recipe, maybe edit it but unsure -->
-
-    <!-- <button type="submit", name="save">Save Recipe</button>
-    <input type="text", name="scaleField">
-    <button type="submit", name="scaleIt">Scale It</button>
-
-</form> -->
-
+    <form>
+        <div class="field">
+            <label class="label">Scale to:</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="in ounces">
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+            <label class="checkbox">
+               <input type="checkbox">
+               ounces
+            </label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+            <label class="checkbox">
+               <input type="checkbox">
+               pounds
+            </label>
+            </div>
+        </div>
+        <div class="">
+            <button class="button is-primary is-rounded">Scale it</button>
+        </div>
+    </form> 
+</section>
 
 {% endblock %}
+
+
