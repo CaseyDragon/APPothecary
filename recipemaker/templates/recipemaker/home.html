@@ -3,7 +3,7 @@
 <div >
     {% if user.is_authenticated %} 
         <p class="is-size-5">Hiya, {{ user.username }}!</p>
-        <a href="{% url 'logout' %}">Log Out</a>
+        <a href="/accounts/logout">Log Out</a>
         <ul class="is-size-3-mobile is-size-1-desktop has-text-centered pb-5">
             <li class="py-3"><a href="/lyecalc">Create a Recipe</a></li>        
             <li class="py-3"><a href="/myrecipes">My Recipes</a></li>
@@ -11,8 +11,8 @@
             <li class="py-3"><a href="/formulas">Formulas</a></li>
         </ul>
     {% else %}
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'signup' %}">Signup</a>
+    <a href="/accounts/login">Login</a>
+    <a href="/accounts/signup">Signup</a>
     {% endif %}
 </div>
 

@@ -23,5 +23,5 @@ urlpatterns = [
     # path('accounts/', v.sign_up, name='sign_up'),
     path('', include('accounts.urls')),
     path('', include('recipemaker.urls')),
-    path('', include('django.contrib.auth.urls')),
+    # path('', include('django.contrib.auth.urls')),
 ]

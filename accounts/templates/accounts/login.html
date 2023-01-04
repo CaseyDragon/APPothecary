@@ -8,8 +8,10 @@
 
 <form method="post" action="{% url 'login' %}">
   {% csrf_token %} 
-  {{form.as_p|crispy}}
+  {{form.as_p}}
   <button class="button is-primary is-rounded" type="submit"> Login </button>
 </form>
+
+<p class="is-size-3">Are you new here? Sign up <a href="/accounts/signup">here!</a></p>
 
 {% endblock %}
