@@ -1,4 +1,3 @@
--- settings.sql
-CREATE DATABASE oils;
-CREATE USER oilsuser WITH PASSWORD 'oils';
-GRANT ALL PRIVILEGES ON DATABASE oils TO oilsuser;
+CREATE DATABASE recipemaker;
+CREATE USER recipemakeruser WITH PASSWORD 'recipemaker';
+GRANT ALL PRIVILEGES ON DATABASE recipemaker TO recipemakeruser;

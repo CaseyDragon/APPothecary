@@ -83,10 +83,11 @@ WSGI_APPLICATION = 'appothecary.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'oils',
-        'USER': 'oilsuser',
-        'PASSWORD': 'oils',
-        'HOST': 'localhost'
+        'NAME': 'recipemaker',
+        'USER': 'recipemakeruser',
+        'PASSWORD': 'recipemaker',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

@@ -8,18 +8,19 @@ def home(response):
     return render(response, 'recipemaker/home.html', {})
 
 @login_required(login_url='/registration/login')
-def lye_calc(response):
-    if response.method == 'POST':
-        form = CreateNewRecipe(response.POST)
+def lye_calc(request):
+    form = CreateNewRecipe()
+    if request.method == 'POST':
+        form = CreateNewRecipe(request.POST)
         if form.is_valid():
-            calc = form.cleaned_data["name"]
-            recipe = Recipes(name=calc)
+            n = form.cleaned_data["name"]
+            recipe = Recipes(name=n)
             recipe.save()
-            response.user.recipes.add(recipe)
+            request.user.recipes.add(recipe)
         return HttpResponseRedirect('/%i' %recipe.id)
     else:    
         form = CreateNewRecipe()
-    return render(response, 'recipemaker/lye_calc.html', {'form':form})
+    return render(request, 'recipemaker/lye_calc.html', {'form':form})
 
 def oils_list(request):
     oils = Oils.objects.all()

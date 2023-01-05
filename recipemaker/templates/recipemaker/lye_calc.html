@@ -14,7 +14,7 @@
 <a href="/additives">Additives</a>
 <p> choose percentages</p>
 <p>give recipe a name</p>
-<form method="post" action="/lye_calc/">
+<form method="POST" action="{% url 'lyecalc' %}">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit", name="save">Save Recipe</button>
