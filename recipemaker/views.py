@@ -13,6 +13,7 @@ def lye_calc(request):
     if request.method == 'POST':
         form = CreateNewRecipe(request.POST)
         if form.is_valid():
+            # Recipes.user.objects.create(**form.cleaned_data)
             n = form.cleaned_data["name"]
             recipe = Recipes(name=n)
             recipe.save()
@@ -43,6 +44,8 @@ def my_recipes(response):
     recipes = Recipes.objects.all()
         # if recipe in response.user.recipes.all():
     return render(response, 'recipemaker/my_recipes.html', {'recipes': recipes})
+
+    
 
 @login_required(login_url='/registration/login')
 def recipe_detail(response, id):
