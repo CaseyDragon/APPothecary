@@ -1,12 +1,13 @@
 {% extends "recipemaker/base.html" %}
-{% load crispy_forms_tags %}
+
 {% block content %}
 
-<form method="POST" action="{% url 'signup' %}">
+<form method="POST" action="{% url 'signup' %}" class="has-text-centered pt-5">
   {% csrf_token %} 
   {{form.as_p}}
-
   <button class="button is-primary is-rounded" type="submit">Sign Up</button>
+  <input type="hidden" name="next" value="{{ next }}" />
 </form>
+<a href="/registration/login">already have an account?</a>
 
 {% endblock %}

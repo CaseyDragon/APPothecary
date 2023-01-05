@@ -1,18 +1,18 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from .forms import SignUpForm
 
 # Create your views here.
 
 
 def sign_up(response):
     if response.method == 'POST':
-        form = UserCreationForm(response.POST)
+        form = SignUpForm(response.POST)
         if form.is_valid():
-            user = form.save()
-            login(response, user)
-            return redirect('/home')
+            form.save()
+            # user = form.save()
+            # login(response, user)
+            return redirect('/recipemaker/home')
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
     
     return render(response, 'accounts/signup.html', {'form': form})
