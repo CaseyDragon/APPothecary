@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 LOGIN_REDIRECT_URL = '/'
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -131,4 +132,4 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRISPY_TEMPLATE_PACK= 'bulma'
+CRISPY_TEMPLATE_PACK= ""

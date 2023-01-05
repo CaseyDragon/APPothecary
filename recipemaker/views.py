@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from .models import Oils, Additives, Recipes
 from .forms import CreateNewRecipe
 
 def home(response):
     return render(response, 'recipemaker/home.html', {})
 
+@login_required(login_url='/registration/login')
 def lye_calc(response):
     if response.method == 'POST':
         form = CreateNewRecipe(response.POST)
@@ -13,6 +15,7 @@ def lye_calc(response):
             calc = form.cleaned_data["name"]
             recipe = Recipes(name=calc)
             recipe.save()
+            response.user.recipes.add(recipe)
         return HttpResponseRedirect('/%i' %recipe.id)
     else:    
         form = CreateNewRecipe()
@@ -34,18 +37,22 @@ def additives_detail(request, id):
     additive = Additives.objects.get(id=id)
     return render(request, 'recipemaker/additives_detail.html', {'additive': additive})
 
+@login_required(login_url='/registration/login')
 def my_recipes(response):
     recipes = Recipes.objects.all()
+        # if recipe in response.user.recipes.all():
     return render(response, 'recipemaker/my_recipes.html', {'recipes': recipes})
 
-def recipe_detail(request, id):
+@login_required(login_url='/registration/login')
+def recipe_detail(response, id):
     recipe = Recipes.objects.get(id=id)
+   
     # work out code for scaling here I believe
     # if response.POST.get('save'):
 
     # elif response.POST.get('scaleIt'):
     #     pass    
-    return render(request, 'recipemaker/recipe_detail.html', {'recipe': recipe})
+    return render(response, 'recipemaker/recipe_detail.html', {'recipe': recipe})
 
 def volume_calc(response):
     return render(response, 'recipemaker/volume_calc.html', {})
