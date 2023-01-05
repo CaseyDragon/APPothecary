@@ -10,7 +10,7 @@
   <body>
     <nav class="navbar has-shadow">
         <div class="navbar-brand">
-            <a href="/" class="navbar-item">
+            <a href="/" class="navbar-item is-size-4">
                 <img src="{% static 'images/soap.png' %}" alt="soap logo" style="max-height: 80px" />
                 APPothecary
             </a>
@@ -21,6 +21,15 @@
                 <a class ="navbar-item" href="/myrecipes">My Recipes</a>
                 <a class ="navbar-item" href="/volume">Volume Calc</a>
                 <a class ="navbar-item" href="/formulas">Formulas</a>
+             </div>
+             <div class="navbar-end">   
+                {% if user.is_authenticated %} 
+                    <p class="navbar-item is-size-4">Hiya, {{ user.username }}!</p>
+                    <a class="navbar-item" href="/registration/logout">Log Out</a>
+                {% else %}
+                    <a class="navbar-item" href="/accounts/signup">Sign up</a>
+                    <a class="navbar-item" href="/registration/login">Login</a>
+                {% endif %}
             </div>
 
         </div>
